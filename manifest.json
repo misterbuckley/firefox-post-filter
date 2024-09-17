@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Post Filter",
+  "version": "1.0",
+  "description": "Filters posts containing specified words on Reddit, Twitter, and Facebook.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.reddit.com/*",
+        "*://twitter.com/*",
+        "*://www.facebook.com/*"
+      ],
+      "js": ["content_script.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "post-filter@example.com"
+    }
+  }
+}
