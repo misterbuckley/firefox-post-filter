@@ -6,12 +6,18 @@
   "icons": {
     "48": "icon.png"
   },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "content_scripts": [
     {
       "matches": [
-        "*://www.reddit.com/*",
-        "*://twitter.com/*",
-        "*://www.facebook.com/*"
+        "*://*.reddit.com/*",
+        "*://*.twitter.com/*",
+        "*://*.facebook.com/*",
+        "*://*.instagram.com/*",
+        "*://*.tiktok.com/*"
       ],
       "js": ["content_script.js"],
       "css": ["styles.css"]
