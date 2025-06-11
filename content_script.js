@@ -29,12 +29,21 @@ if (!currentSelector) {
     const posts = document.querySelectorAll(currentSelector);
     let filteredCount = 0;
     posts.forEach(post => {
+      if (post.dataset.postFiltered) {
+        return;
+      }
       if (containsFilterWord(post.innerText)) {
         filteredCount += 1;
         post.style.display = 'none';
+        post.dataset.postFiltered = 'true';
       }
     });
     if (filteredCount) {
+      browser.runtime.sendMessage({
+        type: 'incrementCount',
+        domain: domain,
+        amount: filteredCount
+      });
       console.log('WordFilter:', 'Filtered', filteredCount, 'posts on', domain);
     }
   }
